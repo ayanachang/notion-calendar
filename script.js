@@ -1,9 +1,11 @@
 const CLIENT_ID = "928433799084-c29ucuoj1597np6lcarbqtf0if47j3on.apps.googleusercontent.com";
-const SCOPES = "https://www.googleapis.com/auth/calendar.events.readonly";
+const SCOPES = [
+  "https://www.googleapis.com/auth/calendar.events.readonly",
+  "https://www.googleapis.com/auth/calendar.calendarlist.readonly"
+].join(" ");
 
 let tokenClient;
 let accessToken = null;
-
 let currentWeek = new Date();
 currentWeek.setHours(0, 0, 0, 0);
 
@@ -48,8 +50,8 @@ connectButton.addEventListener("click", () => {
   }
 
   tokenClient.requestAccessToken({
-    prompt: accessToken ? "" : "consent"
-  });
+  prompt: "consent"
+});
 });
 
 
