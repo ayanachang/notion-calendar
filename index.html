@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pink Study Calendar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="calendar-widget">
+
+    <header class="header">
+      <div>
+        <p class="small-title">MY WEEK</p>
+        <h1 id="week-title">Loading...</h1>
+      </div>
+
+      <div class="controls">
+        <button id="prev-week">‹</button>
+        <button id="today">Today</button>
+        <button id="next-week">›</button>
+      </div>
+    </header>
+
+    <div id="calendar" class="calendar"></div>
+
+    <section class="upcoming">
+      <h2>Upcoming ✿</h2>
+      <div id="upcoming-events">
+        <p class="loading">Connecting to Google Calendar...</p>
+      </div>
+    </section>
+
+    <button id="connect" class="connect-button">
+      Connect Google Calendar
+    </button>
+
+  </div>
+
+  <script src="https://accounts.google.com/gsi/client"></script>
+  <script src="script.js"></script>
+</body>
+</html>
