@@ -25,36 +25,35 @@ function initializeGoogle() {
     scope: SCOPES,
     callback: async (response) => {
       if (response.error) {
-        console.error(response);
+        console.error("Google OAuth error:", response);
+        upcomingEl.innerHTML =
+          "<p class='loading'>Google connection was cancelled or failed.</p>";
         return;
       }
 
       accessToken = response.access_token;
-
       connectButton.textContent = "Calendar connected ✓";
 
       await loadCalendars();
     }
   });
 }
-
-
 // -----------------------------
-// CONNECT BUTTON
+// CONNECT GOOGLE CALENDAR
 // -----------------------------
 
 connectButton.addEventListener("click", () => {
+
   if (!tokenClient) {
     alert("Google Calendar is still loading. Please try again.");
     return;
   }
 
   tokenClient.requestAccessToken({
-  prompt: "consent"
-});
-});
+    prompt: "consent"
+  });
 
-
+});
 // -----------------------------
 // GET ALL CALENDARS
 // -----------------------------
